@@ -34,7 +34,9 @@
                 const listaValoresElement = document.getElementById('listaValores');
                 listaValoresElement.innerHTML = '';
 
-                const valoresOrdenados = this.valores.slice().sort();
+                const valoresOrdenados = this.valores.slice().sort(function(a,b) {
+                    return a - b   
+                });
                 for (const valor of valoresOrdenados) {
                     const liElement = document.createElement('li');
                     liElement.textContent = valor;
