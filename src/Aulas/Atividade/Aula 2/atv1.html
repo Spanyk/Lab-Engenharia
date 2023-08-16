@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tarefas sem CRUD </title>
+</head>
+<body>
+    <h2>To do List | Sem Update e Delete</h2>
+    <form id="form">
+        <input type="text" id="valorUsuario" placeholder="Digite um valor">
+        <button type="button" onclick="gerenciador.adicionarValor()">Adicionar</button>
+    </form>
+
+    <h2>Valores Cadastrados</h2>
+    <ol id="listaValores"></ol>
+
+    <script>
+        class GerenciadorValores {
+            constructor() {
+                this.valores = [];
+            }
+
+            adicionarValor() {
+                const inputElement = document.getElementById('valorUsuario');
+                const valor = inputElement.value.trim();
+
+                if (valor !== '') {
+                    this.valores.push(valor);
+                    inputElement.value = '';
+                    this.atualizarListaOrdenada();
+                }
+            }
+
+            atualizarListaOrdenada() {
+                const listaValoresElement = document.getElementById('listaValores');
+                listaValoresElement.innerHTML = '';
+
+                const valoresOrdenados = this.valores.slice().sort();
+                for (const valor of valoresOrdenados) {
+                    const liElement = document.createElement('li');
+                    liElement.textContent = valor;
+                    listaValoresElement.appendChild(liElement);
+                }
+            }
+        }
+
+        const gerenciador = new GerenciadorValores();
+    </script>
+</body>
+</html>
