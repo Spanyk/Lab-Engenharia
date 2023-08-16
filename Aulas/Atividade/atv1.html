@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = prompt("Digite algo:","");
+        if(confirm("Deseja verificar o tipo do dado informado?")){
+            
+            if (!isNaN(x)) {
+                y = parseInt(x);
+                document.write("O tipo do dado é: "+ typeof(y));
+            }
+            else {
+                if (x == "true" || x == "false"){
+                    y = false;
+                    document.write("O tipo do dado é: "+ typeof(y));
+                }
+                else {
+                    document.write("O tipo do dado é: "+ typeof(x));
+                }
+            }
+        }
+        else{
+            document.write("Obrigado por visitar esta página");
+        }
+
+    </script>
+</body>
+</html>
