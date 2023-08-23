@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Exercicio 3</title>   
     <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", () => {
             const atualizarRelogio = () => {
-                const relogio = document.getElementById('relogio')[0]
-
                 const hoje = new Date();
                 const horas = hoje.getHours();
                 const minutos = hoje.getMinutes();
@@ -18,17 +15,17 @@
                 const hora = horas < 10 ? `0${horas}` : horas;
                 const minuto = minutos < 10 ? `0${minutos}` : minutos;
                 const segundo = segundos < 10 ? `0${segundos}` : segundos;
-                
-                relogio.innerHTML = `${hora}:${minuto}:${segundo}`
-            }
+                var tempo = `${hora}:${minuto}:${segundo}`
 
-            atualizarRelogio();
-            setInterval(() => atualizaRelogio() , 100)
-        })
+                document.getElementById('relogio').innerHTML = tempo;
+            }
+            function initTime() {
+                setInterval(atualizarRelogio, 1000);
+            }
     </script>
 </head>
 
-<body>
+<body onload="initTime();">
     <div id="relogio"></div>
 
 </body>
