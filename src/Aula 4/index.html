@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de Homens e Mulheres</title>
+</head>
+<body>
+    <div>
+        <h1>Contador de Pessoas</h1>
+        <p>Homens: <span id="homens">0</span></p>
+        <p>Mulheres: <span id="mulheres">0</span></p>
+        <p>Total: <span id="total">0</span></p>
+        <button id="incrementarHomem">Incrementar Homem</button>
+        <button id="decrementarHomem">Decrementar Homem</button>
+        <button id="incrementarMulher">Incrementar Mulher</button>
+        <button id="decrementarMulher">Decrementar Mulher</button>
+    </div>
+
+    <script>
+        // Classe para representar o contador de pessoas
+        class ContadorPessoas {
+            constructor() {
+                this.homens = 0;
+                this.mulheres = 0;
+            }
+
+            // Método para incrementar o contador de homens
+            incrementarHomens() {
+                this.homens++;
+                if (this.homens < 0) {
+                    this.homens = 0;
+                }
+                document.getElementById('homens').textContent = this.homens;
+                this.atualizarTotal();
+            }
+
+            // Método para decrementar o contador de homens
+            decrementarHomens() {
+                this.homens--;
+                if (this.homens < 0) {
+                    this.homens = 0;
+                }
+                document.getElementById('homens').textContent = this.homens;
+                this.atualizarTotal();
+            }
+
+            // Método para incrementar o contador de mulheres
+            incrementarMulheres() {
+                this.mulheres++;
+                if (this.mulheres < 0) {
+                    this.mulheres = 0;
+                }
+                document.getElementById('mulheres').textContent = this.mulheres;
+                this.atualizarTotal();
+            }
+
+            // Método para decrementar o contador de mulheres
+            decrementarMulheres() {
+                this.mulheres--;
+                if (this.mulheres < 0) {
+                    this.mulheres = 0;
+                }
+                document.getElementById('mulheres').textContent = this.mulheres;
+                this.atualizarTotal();
+            }
+
+            // Método para atualizar o contador total
+            atualizarTotal() {
+                const total = this.homens + this.mulheres;
+                document.getElementById('total').textContent = total;
+            }
+        }
+
+        const contador = new ContadorPessoas();
+
+        // Associar eventos aos botões
+        document.getElementById('incrementarHomem').addEventListener('click', () => {
+            contador.incrementarHomens();
+        });
+
+        document.getElementById('decrementarHomem').addEventListener('click', () => {
+            contador.decrementarHomens();
+        });
+
+        document.getElementById('incrementarMulher').addEventListener('click', () => {
+            contador.incrementarMulheres();
+        });
+
+        document.getElementById('decrementarMulher').addEventListener('click', () => {
+            contador.decrementarMulheres();
+        });
+    </script>
+</body>
+</html>
