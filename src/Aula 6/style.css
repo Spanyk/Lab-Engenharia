@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculadora {
+    width: 380px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, .6);
+}
+
+.calculadora-visor {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    text-align: right;
+}
+
+
+.button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    margin: 5px 10px 5px;
+    padding: 15px;
+    color: #fff;
+    background: rgb(18, 129, 78);
+
+}

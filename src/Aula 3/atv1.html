@@ -1,281 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>Exercicio 1</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
-  <title>Exercicio 1</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-</head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;1,300;1,700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Ubuntu", sans-serif;
+        box-sizing: border-box;
+      }
 
-<body>
-  <div class="container">
-    <form id="cadastro">
-      <h2>Formulário de Cadastro:</h2>
-      <div class="row">
-        <div class="col-md-12">
-          <label for="nome">Nome:</label>
-          <input class="form-control" type="text" id="nome" name="nome" required />
-        </div>
-        <div class="col-md-8">
-          <label for="email">E-mail:</label>
-          <input class="form-control" type="email" id="email" name="email" required />
-        </div>
-        <div class="col-md-4">
-          <label for="dataNasc">Data de nascimento:</label>
-          <input class="form-control" type="date" id="dataNasc" name="dataNasc" required />
-        </div>
-        <div class="col-md-4">
-          <label for="telefoneFixo">Telefone Fixo:</label>
-          <input class="form-control" type="text" id="telefoneFixo" name="telefoneFixo" required />
-        </div>
-        <div class="col-md-4">
-          <label for="telefoneCelular">Telefone celular:</label>
-          <input class="form-control" type="text" id="telefoneCelular" name="telefoneCelular" required />
-        </div>
-        <div class="col-md-4">
-          <label>
-            <input type="radio" name="tipoUsuario" value="professor" />
-            Professor </label><br />
+      body {
+        height: 100vh;
+        background: linear-gradient(120deg, #5d52c2, #c51818da);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-          <label>
-            <input type="radio" name="tipoUsuario" value="aluno" />
-            Aluno
-          </label>
-        </div>
-        <div class="col-md-4" name="area">
-          <label for="area">Area:</label>
-          <input class="form-control" type="text" id="area" />
-        </div>
+      
 
-        <div class="col-md-4" name="matricula">
-          <label for="matricula">Matricula:</label>
-          <input class="form-control" type="number" id="matricula" required />
-        </div>
-        <div class="col-md-4" name="lattes">
-          <label for="lattes">Lattes:</label>
-          <input class="form-control" type="text" id="lattes" />
-        </div>
+      .valores-ordenados--app {
+        width: 100%;
+        max-width: 540px;
+        border-radius: 10px;
+        background: #fff;
+        margin: 100px auto 20px;
+        padding: 40px 30px 70px;
+        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
+      }
 
-        <div class="col-md-4" name="curso">
-          <label for="curso">Curso:</label>
-          <input class="form-control" type="text" id="curso" />
+      .valores-ordenados--app h2 {
+        color: #450961;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .valores-ordenados--app h2  a{
+        text-decoration: none;
+        color: #450961;
+        cursor: pointer;
+        margin-left: 180px;
+
+        font-weight: bolder;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #edeef0;
+        border-radius: 30px;
+        padding-left: 20px;
+        margin-bottom: 25px;
+      }
+
+
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 10px;
+        font-weight: 14px;
+      }
+      button {
+        border: none;
+        outline: none;
+        padding: 16px 50px;
+        background: #ff5945;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 40px;
+      }
+
+      ol li {
+        font-size: 17px;
+        padding: 12px 8px 12px 50px;
+        position: relative;
+        
+        
+      }
+
+    </style>
+  </head>
+  <body>
+      <div class="valores-ordenados--app">
+        <h2>Ordenação de Valores <a href="/index.html"><i class="fa fa-arrow-circle-o-left" style="font-size:48px;"></i></a></h2>
+        <div class="row">
+          <input type="text" id="valorUsuario" placeholder="Digite um valor" />
+          <button type="button" onclick="gerenciador.adicionarValor()">
+            Add
+          </button>
         </div>
-        <div class="col-md-12" style="margin-top: 15px">
-          <input type="submit" value="Cadastrar" class="btn btn-primary btn-lg" style="width: 100%" />
-        </div>
-      </div>
-    </form>
-    <a href="../index.html">Voltar</a>
+        <div>
+            <ol id="listaValores"></ol>
+          </div>
+      </div>   
     <script>
-      class Pessoa {
-        constructor(nome, email, dataNasc, telefoneFixo, telefoneCelular) {
-          this.nome = nome;
-          this.email = email;
-          this.dataNasc = dataNasc;
-          this.telefoneFixo = telefoneFixo;
-          this.telefoneCelular = telefoneCelular;
+      class GerenciadorValores {
+        constructor() {
+          this.valores = [];
         }
 
-        validarDados() {
-          let camposObrigatorios = [
-            "nome",
-            "email",
-            "dataNasc",
-            "telefoneFixo",
-            "telefoneCelular",
-          ];
+        adicionarValor() {
+          const inputElement = document.getElementById("valorUsuario");
+          const valor = inputElement.value.trim();
 
-          for (let campo of camposObrigatorios) {
-            if (!this[campo]) {
-              return false;
-            }
+          if (valor !== "") {
+            this.valores.push(valor);
+            inputElement.value = "";
+            this.atualizarListaOrdenada();
           }
-          return true;
+        }
+
+        atualizarListaOrdenada() {
+          const listaValoresElement = document.getElementById("listaValores");
+          listaValoresElement.innerHTML = "";
+
+          const valoresOrdenados = this.valores.slice().sort(function (a, b) {
+            return a - b;
+          });
+          for (const valor of valoresOrdenados) {
+            const liElement = document.createElement("li");
+            liElement.textContent = valor;
+            listaValoresElement.appendChild(liElement);
+          }
         }
       }
 
-      class Aluno extends Pessoa {
-        constructor(
-          nome,
-          email,
-          dataNasc,
-          telefoneFixo,
-          telefoneCelular,
-          matricula,
-          curso
-        ) {
-          super(nome, email, dataNasc, telefoneFixo, telefoneCelular);
-          this.matricula = matricula;
-          this.curso = curso;
-        }
-
-        validarDados() {
-          super.validarDados();
-
-          let camposObrigatorios = ["matricula", "curso"];
-
-          for (let campo of camposObrigatorios) {
-            if (!this[campo]) {
-              return false;
-            }
-          }
-          return true;
-        }
-      }
-
-      class Professor extends Pessoa {
-        constructor(
-          nome,
-          email,
-          dataNasc,
-          telefoneFixo,
-          telefoneCelular,
-          area,
-          lattes
-        ) {
-          super(nome, email, dataNasc, telefoneFixo, telefoneCelular);
-          this.area = area;
-          this.lattes = lattes;
-        }
-
-        validarDados() {
-          super.validarDados();
-
-          let camposObrigatorios = ["area", "lattes"];
-
-          for (let campo of camposObrigatorios) {
-            if (!this[campo]) {
-              return false;
-            }
-          }
-          return true;
-        }
-      }
-
-      let usuarios = [];
-
-      document.addEventListener("DOMContentLoaded", () => {
-        // Código para deixar formulario dinamico
-
-        const professorInputs = document.querySelectorAll(
-          '[name="area"], [name="lattes"]'
-        );
-        const alunoInputs = document.querySelectorAll('[name="curso"]');
-
-        alunoInputs.forEach(
-          (alunoInput) => (alunoInput.style.display = "none")
-        );
-        professorInputs.forEach(
-          (professorInput) => (professorInput.style.display = "none")
-        );
-
-        const tipoUsuarioInput = document.getElementsByName("tipoUsuario");
-
-        tipoUsuarioInput.forEach((input) => {
-          input.addEventListener("change", () => {
-            if (input.value === "professor") {
-              professorInputs.forEach(
-                (professorInput) => (professorInput.style.display = "block")
-              );
-              alunoInputs.forEach(
-                (alunoInput) => (alunoInput.style.display = "none")
-              );
-            } else if (input.value === "aluno") {
-              professorInputs.forEach(
-                (professorInput) => (professorInput.style.display = "none")
-              );
-              alunoInputs.forEach(
-                (alunoInput) => (alunoInput.style.display = "block")
-              );
-            }
-          });
-        });
-
-        // Código para adicionar máscara de telefone
-
-        const adicionarMascaraTelefoneFixo = (input) => {
-          input.addEventListener("input", function () {
-            let valor = input.value;
-
-            valor = valor.replace(/\D/g, "");
-            const valorMascarado = `(${valor.slice(0, 2)}) ${valor.slice(
-              2,
-              6
-            )}-${valor.slice(6, 10)}`;
-
-            input.value = valorMascarado;
-          });
-        };
-
-        function adicionarMascaraTelefoneCelular(input) {
-          input.addEventListener("input", function () {
-            let valor = input.value;
-
-            valor = valor.replace(/\D/g, "");
-            const valorMascarado = `(${valor.slice(0, 2)}) ${valor.slice(
-              2,
-              7
-            )}-${valor.slice(7, 11)}`;
-
-            input.value = valorMascarado;
-          });
-        }
-
-        const telefoneFixoInput = document.getElementById("telefoneFixo");
-        adicionarMascaraTelefoneFixo(telefoneFixoInput);
-
-        const telefoneCelularInput = document.getElementById("telefoneCelular");
-        adicionarMascaraTelefoneCelular(telefoneCelularInput);
-
-
-        const form = document.getElementById("cadastro");
-
-        const adicionUsuario = (user) => {
-          usuarios.push(user);
-          form.reset();
-        };
-
-
-
-        form.addEventListener("submit", function (event) {
-          event.preventDefault();
-          const tipoUsuario = form.elements.tipoUsuario.value;
-          const nome = form.elements.nome.value;
-          const email = form.elements.email.value;
-          const dataNasc = form.elements.dataNasc.value;
-          const telefoneFixo = form.elements.telefoneFixo.value;
-          const telefoneCelular = form.elements.telefoneCelular.value;
-
-          let usuario;
-
-          if (tipoUsuario === "aluno") {
-            const curso = form.elements.curso.value;
-            usuario = new Aluno(nome, email, dataNasc, telefoneFixo, telefoneCelular, tipoUsuario, curso);
-          } else if (tipoUsuario === "professor") {
-            const matricula = form.elements.matricula.value;
-            const area = form.elements.area.value;
-            const lattes = form.elements.lattes.value;
-            usuario = new Professor(nome, email, dataNasc, telefoneFixo, telefoneCelular, tipoUsuario, matricula, area, lattes);
-          }
-
-          let formValido = usuario.validarDados();
-
-          if (formValido) {
-            usuarios.push(usuario);
-            form.reset();
-          } else {
-            alert("FOrmulario invalido")
-          }
-          console.log(usuarios);
-
-        });
-      });
-
+      const gerenciador = new GerenciadorValores();
     </script>
-  </div>
-</body>
-
+  </body>
 </html>

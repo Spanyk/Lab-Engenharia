@@ -1,41 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    <nav>
-        <h2>Semana 1</h2>
-        <ul>
-            <li><a href="src/Aula 1/atv1.html">Exercicio 1</a></li>
-            <li><a href="src/Aula 1/atv2.html">Exercicio 2</a></li>
-            <li><a href="src/Aula 1/atv3.html">Exercicio 3</a></li>
-            <li><a href="src/Aula 1/atv4.html">Exercicio 4</a></li>
-        </ul>
-    </nav>
-    <nav>
-        <h2>Semana 2</h2>
-        <ul>
-            <li><a href="src/Aula 2/atv1.html">Exercicio 1</a></li>
-            <li><a href="src/Aula 2/atv2.html">Exercicio 2</a></li>
-            <li><a href="src/Aula 2/atv3.html">Exercicio 3</a></li>
-            <li><a href="src/Aula 2/atv4.html">Exercicio 4</a></li>
-        </ul>
-    </nav>
-    <nav>
-        <h2>Semana 3</h2>
-        <ul>
-            <li><a href="src/Aula 3/atv1.html">Exercicio 1</a></li>
-            <li><a href="src/Aula 3/atv2.html">Exercicio 2</a></li>
-        </ul>
-    </nav>
-    <nav>
-        <h2>Semana 4</h2>
-        <ul>
-            <li><a href="src/Aula 4/atv01.html">Exercicio 1</a></li>
-        </ul>
-    </nav>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+      }
+
+      .card {
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 10px 29px 0 rgb(68 88 144 / 10%);
+        transition: all 0.3s ease-in-out;
+        text-align: center;
+        border: 1px solid #fff;
+      }
+
+      .icon {
+        margin: 0 auto 20px auto;
+        padding-top: 17px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        width: 72px;
+        height: 72px;
+        background: #07292c;
+      }
+
+      .icon i {
+        font-size: 36px;
+        line-height: 1;
+        color: #fff;
+      }
+
+      .offset {
+        margin-left: 1%;
+        margin-bottom: 1%;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+    <title>Aulas de Javascript</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col offset icon-box">
+          <div class="card" style="width: 16rem">
+            <div class="icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Semana 1</h5>
+              <div class="center">
+                <a href="src/Aula 1/atv1.html">Exercicio 1</a>
+                <a href="src/Aula 1/atv2.html">Exercicio 2</a>
+                <a href="src/Aula 1/atv3.html">Exercicio 3</a>
+                <a href="src/Aula 1/atv4.html">Exercicio 4</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card offset" style="width: 20rem">
+            <div class="icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Semana 2</h5>
+              <div class="center">
+                <a href="src/Aula 2/atv1.html">Exercicio 1: Lista de valores</a
+                ><br />
+                <a href="src/Aula 2/atv2.html">Exercicio 2: Data atual</a>
+                <a href="src/Aula 2/atv3.html">Exercicio 3: Relogio</a>
+                <a href="src/Aula 2/atv4.html"
+                  >Exercicio 4: Verificar Palíndromo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card offset" style="width: 15rem">
+            <div class="icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Semana 3</h5>
+              <div class="center">
+                <a href="src/Aula 3/atv1.html">Exercicio 1</a>
+                <a href="src/Aula 3/atv2.html">Exercicio 2</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card ofset" style="width: 15rem">
+            <div class="icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Semana 4</h5>
+              <div class="center">
+                <a href="src/Aula 4/atv1.html">Exercicio 1</a>
+                <a href="src/Aula 4/atv2.html">Exercicio 2</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card ofset" style="width: 15rem">
+            <div class="icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Semana 5</h5>
+              <div class="center">
+                <a href="src/Aula 5/atv1.html">Exercicio 1</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

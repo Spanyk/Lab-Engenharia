@@ -1,33 +1,36 @@
-<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Exercicio 3</title>   
-    <script type="text/javascript">
-            const atualizarRelogio = () => {
-                const hoje = new Date();
-                const horas = hoje.getHours();
-                const minutos = hoje.getMinutes();
-                const segundos = hoje.getSeconds();
-
-                const hora = horas < 10 ? `0${horas}` : horas;
-                const minuto = minutos < 10 ? `0${minutos}` : minutos;
-                const segundo = segundos < 10 ? `0${segundos}` : segundos;
-                var tempo = `${hora}:${minuto}:${segundo}`
-
-                document.getElementById('relogio').innerHTML = tempo;
-            }
-            function initTime() {
-                setInterval(atualizarRelogio, 1000);
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 4</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("botao").addEventListener("click", () => {
+          const valor = document.getElementById("texto").value;
+          var re = /[\W_]/g;
+          var lowRegStr = valor.toLowerCase().replace(re, "");
+          var reverseStr = lowRegStr.split("").reverse().join("");
+          if (reverseStr === lowRegStr) {
+            alert("Esse texto é um palíndromo");
+          } else {
+            alert("Esse texto não é um palíndromo");
+          }
+        });
+      });
     </script>
-</head>
+  </head>
 
-<body onload="initTime();">
-    <div id="relogio"></div>
+  <body>
+    <form>
+      <input
+        type="text"
+        id="texto"
+        class="form-control"
+        placeholder="Digite um texto..."
+      />
+      <input type="button" id="botao" value="Verificar se é Palíndromo" />
+    </form>
     <a href="../index.html">Voltar</a>
-</body>
-
+  </body>
 </html>
