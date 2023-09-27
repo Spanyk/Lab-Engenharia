@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercicio 1</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;1,300;1,700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Ubuntu", sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        background: linear-gradient(120deg, #5d52c2, #c51818da);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      
+
+      .valores-ordenados--app {
+        width: 100%;
+        max-width: 540px;
+        border-radius: 10px;
+        background: #fff;
+        margin: 100px auto 20px;
+        padding: 40px 30px 70px;
+        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
+      }
+
+      .valores-ordenados--app h2 {
+        color: #450961;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .valores-ordenados--app h2  a{
+        text-decoration: none;
+        color: #450961;
+        cursor: pointer;
+        margin-left: 180px;
+
+        font-weight: bolder;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #edeef0;
+        border-radius: 30px;
+        padding-left: 20px;
+        margin-bottom: 25px;
+      }
+
+
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 10px;
+        font-weight: 14px;
+      }
+      button {
+        border: none;
+        outline: none;
+        padding: 16px 50px;
+        background: #ff5945;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 40px;
+      }
+
+      ol li {
+        font-size: 17px;
+        padding: 12px 8px 12px 50px;
+        position: relative;
+        
+        
+      }
+
+    </style>
+  </head>
+  <body>
+      <div class="valores-ordenados--app">
+        <h2>Ordenação de Valores <a href="/index.html"><i class="fa fa-arrow-circle-o-left" style="font-size:48px;"></i></a></h2>
+        <div class="row">
+          <input type="text" id="valorUsuario" placeholder="Digite um valor" />
+          <button type="button" onclick="gerenciador.adicionarValor()">
+            Add
+          </button>
+        </div>
+        <div>
+            <ol id="listaValores"></ol>
+          </div>
+      </div>   
+      
+    <script>
+      class GerenciadorValores {
+        constructor() {
+          this.valores = [];
+        }
+
+        adicionarValor() {
+          const inputElement = document.getElementById("valorUsuario");
+          const valor = inputElement.value.trim();
+
+          if (valor !== "") {
+            this.valores.push(valor);
+            inputElement.value = "";
+            this.atualizarListaOrdenada();
+          }
+        }
+
+        atualizarListaOrdenada() {
+          const listaValoresElement = document.getElementById("listaValores");
+          listaValoresElement.innerHTML = "";
+
+          const valoresOrdenados = this.valores.slice().sort(function (a, b) {
+            return a - b;
+          });
+          for (const valor of valoresOrdenados) {
+            const liElement = document.createElement("li");
+            liElement.textContent = valor;
+            listaValoresElement.appendChild(liElement);
+          }
+        }
+      }
+
+      const gerenciador = new GerenciadorValores();
+    </script>
+  </body>
+</html>

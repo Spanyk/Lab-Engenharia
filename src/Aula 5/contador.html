@@ -14,12 +14,7 @@
         margin: 0;
         padding: 0;
       }
-      .header {
-        display: flex;
-        flex-direction: row;
-        padding: 5px;
-        margin: 5px;
-      }
+     
       img {
         width: 100px;
         height: 100px;
@@ -34,22 +29,40 @@
         padding: 2rem;
         box-shadow: 2px 3px 3px 1px #b6b6b6;
       }
+
+      .contador h2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-family: sans-serif;
+        font-weight: bold;
+        padding: 5px 10px 20px;
+      }
+
+     
       .contador div {
         display: flex;
         flex-wrap: nowrap;
+        flex-direction: column;
         justify-content: space-around;
         justify-items: center;
       }
 
-      #avatar {
+      .contador-pessoas {
         display: flex;
-        justify-content: space-around;
         flex-wrap: wrap;
         padding: 15px;
         margin: 5px;
       }
+
+      .contador-pessoas #avatar {
+        display: flex;
+        flex-direction: row;
+        padding: 5px 10px;
+        justify-content: space-around;
+      }
  
-      #total,#mulheres,#homens {
+      span {
         width: 7rem;
         padding: 2px;
         margin: 2px 5px;
@@ -88,25 +101,22 @@
   </head>
   <body>
     <div class="contador">
-      <div class="header">
-        <h2>Total</h2>
+        <h2>Total <i id="reset" class="fa-solid fa-arrows-rotate"></i> </h2>
         <span id="total">0</span>
-        <i id="reset" class="fa-solid fa-arrows-rotate"></i>
-      </div>
       <div class="contador-pessoas">
         <div id="avatar">
-          <img src=".../img/undraw_male_avatar_g98d.svg" alt="Avatar masculino" />
+          <img src="/image/man.png" alt="Avatar masculino" />
           <div>
             <button type="button" class="count-button" id="plusH">+</button>
             <button type="button" class="count-button" id="minusH">-</button>
           </div>
           <div>
-            <p>Homem</p>
+            <p>Homem</p><br>
             <span id="homens">0</span>
           </div>
         </div>
         <div id="avatar">
-          <img src="../img/undraw_female_avatar_efig.svg" alt="Avatar feminino" />
+          <img src="/image/woman.png" alt="Avatar feminino" />
           <div>
             <button type="button" class="count-button" id="plusM">+</button>
             <button type="button" class="count-button" id="minusM">-</button>
@@ -117,6 +127,7 @@
           </div>
         </div>
       </div>
+      <a href="/index.html"><i class="fa fa-arrow-circle-o-left" style="font-size:30px; color: black;"></i></a>
     </div>
     <script
       src="https://kit.fontawesome.com/d12d816b50.js"

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Aula 2: Relogio</title>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;1,300;1,700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        
+        body {
+            height: 100vh;
+            background: linear-gradient(120deg, #2f248f, #c51818da);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .voltar {
+            position: absolute;
+            margin-top: 17em;
+            text-align: center;
+            font-weight: bolder;
+            text-decoration: none;
+        }
+        .voltar a{ 
+            text-decoration: none;
+            color: #fff;
+            cursor: pointer;
+        }
+        .relogio {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 200px;
+            width: 550px;
+            background: transparent;
+            border-radius: 3px;
+            box-shadow: 0px 8px 10px rgba(0, 0, 0, .5);
+        }
+
+        .relogio div {
+            height: 170px;
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: rgba(5, 5, 5, .9);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+            border-radius: 7px;
+            letter-spacing: 3px;
+        }
+
+        .relogio span {
+            font-weight: bolder;
+            font-size: 60px;
+        }
+
+        .relogio span.tempo {
+            font-size: 10px
+        }
+    </style>
+</head>
+
+<body>
+   
+    <div class="relogio">
+        <div>
+            <span id="horas">00</span>
+            <span class="tempo">Horas</span>
+        </div>
+        <div>
+            <span id="minutos">00</span>
+            <span class="tempo">Minutos</span>
+        </div>
+        <div>
+            <span id="segundos">00</span>
+            <span class="tempo">Segundos</span>
+        </div>
+    </div>
+    <div class="voltar">
+        <a href="/index.html"><i class="fa fa-arrow-circle-o-left" style="font-size:48px;"></i></a>
+    </div>
+    <script type="text/javascript">
+        const horas = document.getElementById('horas');
+        const minutos = document.getElementById('minutos');
+        const segundos = document.getElementById('segundos');
+
+        const relogio = setInterval(function time() {
+            const hoje = new Date();
+            const hora = hoje.getHours();
+            const minuto = hoje.getMinutes();
+            const segundo = hoje.getSeconds();
+
+            horas.textContent = hora < 10 ? `0${hora}` : hora;
+            minutos.textContent = minuto < 10 ? `0${minuto}` : minuto;
+            segundos.textContent = segundo < 10 ? `0${segundo}` : segundo;
+        })
+    </script>
+</body>
+
+</html>
